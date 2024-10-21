@@ -1,0 +1,51 @@
+// (terror, velho oeste, drama, mafia )
+
+// sexta-feira 13, 16, terror
+// era uma vez no oeste, 12, velho oeste
+// brinquedo assassino, 14, terror
+// halloween2018, 18, terror
+// taxi driver, 16, drama
+// scarface, 16, mafia
+
+let campoidade;
+let campofantasia;
+let campoaventura;
+
+function setup() {
+  createCanvas(800, 400);
+ createElement("h2", "recomendador de filmes");
+  createSpan("sua idade");
+  campoidade = createInput("5");
+  campofantasia= createCheckbox("gosta de fantasia?");
+ campoaventura = createCheckbox("gosta de aventura?");
+}
+
+function draw() {
+  background('white');
+  let idade = campoidade.value();
+  let gostadefantasia = campofantasia.checked();
+  let gostadeaventura = campoaventura.checked();
+  let recomendacao = gerarecomendacao ( idade, gostadefantasia , gostadeaventura);
+  fill(color(255, 0, 0));
+  textAlign(CENTER, CENTER);
+  textSize(38);
+  text ( recomendacao, width/2 , height / 2);
+  
+}
+
+function gerarecomendacao  (idade , gostadefantasia ,  gostadeaventura) {
+  if ( idade >= 10 ){
+    if ( idade>=14 ){
+      return 'sexta-feira 13';
+        } else {
+          if (idade >= 12) {
+          if (gostadefantasia || gostadeaventura ){
+            return 'era uma vez no oeste';
+            }else {
+              return 'brinquedo assasino';
+          }
+        }
+ } } else {
+  return 'helloween2018';
+}
+}
